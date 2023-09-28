@@ -1,0 +1,10 @@
+name: Delete issue workflow
+on:
+  issues:
+    types: [deleted]
+jobs:
+  event_info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo delete confirmation
+        run: echo "The issue with id ${{toJson(github.event.issue.id)}} was deleted"
